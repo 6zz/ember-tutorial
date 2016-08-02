@@ -11,4 +11,12 @@ export default Ember.Controller.extend({
   emailAddressChanged: Ember.observer('emailAddress', function() {
     console.log('observer is called', this.get('emailAddress'));
   }),
+
+  actions: {
+    saveInvitation() {
+      alert(`Saving of the following email address is in progress: ${this.get('emailAddress')}`);
+      this.set('responseMessage', `Thank you! We've just saved your emailAddress: ${this.get('emailAddress')}`);
+      this.set('emailAddress', '');
+    },
+  },
 });
