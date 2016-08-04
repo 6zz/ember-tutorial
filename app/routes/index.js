@@ -28,7 +28,7 @@ export default Ember.Route.extend({
     this.controller.get('model').rollbackAttributes();
   },
 
-  resetController: function(controller, isExiting, transition) {
+  resetController(controller, isExiting) {
     console.log('reseting controller');
     if (isExiting) {
       controller.get('model').rollbackAttributes();

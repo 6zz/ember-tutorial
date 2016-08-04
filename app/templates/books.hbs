@@ -1,0 +1,28 @@
+<h1>Books</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Released On</th>
+      <th>Library</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |book|}}
+      <tr>
+        <td>{{form-toggle item=book field='title' action='saveBook'}}</td>
+        <td>{{book.releaseYear}}</td>
+        <td>
+          <address>
+            <strong>{{book.library.name}}</strong><br>
+            {{book.library.address}}<br>
+            <abbr title="phone">P:</abbr> {{book.library.phone}}
+          </address>
+        </td>
+        <td>{{book.author.name}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+{{#if item.isEditing}}
+  <form {{action 'save' item on='submit'}} class="form-inline">
+    <div class="input-group">
+      {{input value=(mut (get item field)) class="form-control"}}
+      <div class="input-group-btn">
+        <button type="submit" class="btn btn-success" disabled="{{unless item.isValid 'disabled'}}">Save</button>
+        <button class="btn btn-danger" {{action 'cancelEdit' item}}>Cancel</button>
+      </div>
+    </div>
+  </form>
+{{else}}
+  <a href="" {{action 'edit' item}}>{{get item field}}</a>
+{{/if}}
