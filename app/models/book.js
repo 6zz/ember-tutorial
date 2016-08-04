@@ -2,6 +2,7 @@ import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { belongsTo } from 'ember-data/relationships';
 import Faker from 'faker';
+import Ember from 'ember';
 
 export default Model.extend({
   title: attr('string'),
@@ -9,6 +10,8 @@ export default Model.extend({
   library: belongsTo('library', { inverse: 'books', async: true }),
   author: belongsTo('author', { inverse: 'books', async: true }),
 
+  isValid: Ember.computed.notEmpty('title'),
+  
   randomize(author, library) {
     this.set('title', this._bookTitle());
     this.set('author', author);

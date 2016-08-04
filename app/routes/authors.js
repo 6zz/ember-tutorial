@@ -6,22 +6,9 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    editAuthor(author) {
-      author.set('isEditing', true);
-    },
-
-    cancelAuthorEdit(author) {
-      author.set('isEditing', false);
-      author.rollbackAttributes();
-    },
 
     saveAuthor(author) {
-      if (author.get('isNotValid')) {
-        return;
-      }
-
       console.log("saving author");
-      author.set('isEditing', false);
       author.save();
     }
   }

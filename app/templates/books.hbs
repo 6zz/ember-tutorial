@@ -12,7 +12,7 @@
   <tbody>
     {{#each model as |book|}}
       <tr>
-        <td>{{book.title}}</td>
+        <td>{{form-toggle item=book field='title' action='saveBook'}}</td>
         <td>{{book.releaseYear}}</td>
         <td>
           <address>
